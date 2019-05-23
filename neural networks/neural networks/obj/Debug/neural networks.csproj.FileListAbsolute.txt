@@ -1,0 +1,2 @@
+D:\git\advancedC\neural networks\neural networks\obj\Debug\neural networks.csprojAssemblyReference.cache
+D:\git\advancedC\neural networks\neural networks\obj\Debug\neural networks.csproj.CoreCompileInputs.cache
