@@ -1,0 +1,7 @@
+D:\git\advancedC\Delegat\Delegat\bin\Debug\Delegat.exe.config
+D:\git\advancedC\Delegat\Delegat\bin\Debug\Delegat.exe
+D:\git\advancedC\Delegat\Delegat\bin\Debug\Delegat.pdb
+D:\git\advancedC\Delegat\Delegat\obj\Debug\Delegat.csprojAssemblyReference.cache
+D:\git\advancedC\Delegat\Delegat\obj\Debug\Delegat.csproj.CoreCompileInputs.cache
+D:\git\advancedC\Delegat\Delegat\obj\Debug\Delegat.exe
+D:\git\advancedC\Delegat\Delegat\obj\Debug\Delegat.pdb
