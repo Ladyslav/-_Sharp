@@ -20,7 +20,7 @@ void menu();
 void AddNode(Product*& head, Product*& tail);
 void DeleteList(Product*& head, Product*& tail);
 void ShowList(Product*& head, Product*& tail);
-bool deliveryToCustomer(Product*& head, Product*& tail,Product*& headCustomer, Product*& tailCustomer, int index);
+bool deliveryToCustomer(Product*& head, Product*& tail, Product*& headCustomer, Product*& tailCustomer, int index);
 bool deleteNODE(Product*& head, Product*& tail, int index);
 void ShowItemList(Product*& headCustomer, Product*& tailCustomer);
 
@@ -30,8 +30,6 @@ int main()
 	menu();
 	return 0;
 }
-
-
 
 void menu()
 {
@@ -44,44 +42,48 @@ void menu()
 	bool exit = false;
 	while (!exit)
 	{
-		cout <<" 1 - Add Product "<<endl<<" 2 - Show Product "<<endl<<" 3 - Delete Product "<<endl<<" 4 - Delivery "<<endl<<" 5 - ShowItem"<<endl<<" 6 - Exit: "<<endl;
+		cout << " 1 - Add Product " << endl << " 2 - Show Product " << endl << " 3 - Delete Product " << endl << " 4 - Send products to the warehouse " << endl << " 5 - Show Product in stock" << endl << " 6 - Delete all Products" << endl << " 7 - Exit: " << endl;
 		cin >> choice;
 
 		switch (choice)
 		{
 		case 1:
-		{			
-			AddNode(head,tail);
+		{
+			AddNode(head, tail);
 		}
 		break;
 		case 2:
 		{
-			ShowList(head,tail);			
+			ShowList(head, tail);
 		}
 		break;
-
 		case 3:
 		{
 			ShowList(head, tail);
-			cout << "Choose index" << endl;
+			cout << "Choose number of Product" << endl;
 			cin >> index;
-			deleteNODE(head,tail, index);
+			deleteNODE(head, tail, index);
 		}
 		break;
 		case 4:
 		{
 			ShowList(head, tail);
-			cout << "Choose index"<<endl;
+			cout << "Choose number of Product" << endl;
 			cin >> index;
-		   deliveryToCustomer(head, tail, headCustomer,tailCustomer, index);
+			deliveryToCustomer(head, tail, headCustomer, tailCustomer, index);
 		}
 		break;
-		case 5: 
+		case 5:
 		{
-			ShowItemList(headCustomer,tailCustomer);		
+			ShowItemList(headCustomer, tailCustomer);
 		}
 		break;
 		case 6:
+		{
+			DeleteList(headCustomer, tailCustomer);
+		}
+		break;
+		case 7:
 			exit = true;
 			break;
 		default:
@@ -99,7 +101,7 @@ void menu()
 
 void AddNode(Product*& head, Product*& tail)
 {
-	
+
 	Product* tmpNode = new Product;
 	cout << "Put price: ";
 	cin >> tmpNode->Price;
@@ -115,7 +117,7 @@ void AddNode(Product*& head, Product*& tail)
 		tmpNode->pPrev = tail;
 		tail->pNext = tmpNode;
 		tail = tail->pNext;
-				 
+
 	}
 }
 
@@ -125,15 +127,18 @@ void AddNode(Product*& head, Product*& tail)
 void ShowList(Product*& head, Product*& tail)
 {
 	Product* tmp = head;
+	int counter = 1;
 	if (tmp == nullptr)
 	{
 		cout << "Nothing";
 	}
 	while (tmp != nullptr)
 	{
-		cout << "Address: "  << tmp << endl << "Value: "  << tmp->Price << endl << "Customer: " << tmp->Customer << endl << "Label: " << tmp->Label << endl << "Priority :" << tmp->Priority << endl << "LinkNext: " << tmp->pNext << endl << "LinkPrev: " << tmp->pPrev << endl;
+
+		cout << "Number of product: " << counter << endl << "Value: " << tmp->Price << endl << "Label: " << tmp->Label << endl;
 		cout << endl;
 		tmp = tmp->pNext;
+		counter++;
 	}
 
 	cout << "\n\n\n";
@@ -158,27 +163,34 @@ void DeleteList(Product*& head, Product*& tail)
 }
 
 
-bool deleteNODE(Product*& srcHeadead, Product*& srcTail, int index)
+bool deleteNODE(Product*& srcHead, Product*& srcTail, int index)
 {
-	if (srcHeadead == nullptr || srcTail==nullptr)
+	if (srcHead == nullptr || srcTail == nullptr)
 		return false;
-	else if (index == 0)
+
+	else if (index > 0)
+		index = index - 1;
+	else
+		return false;
+
+	if (index == 0)
 	{
-		Product* tmp = srcHeadead->pNext;
-		delete srcHeadead;
-		srcHeadead = tmp;
+
+		Product* tmp = srcHead->pNext;
+		delete srcHead;
+		srcHead = tmp;
+		tmp->pPrev = nullptr;
 		return true;
 	}
 
 	int counter = 1;
-	Product* tmp = srcHeadead->pNext;
-	Product* tmpPrev = srcHeadead;
+	Product* tmp = srcHead->pNext;
+	Product* tmpPrev = srcHead;
 	for (; tmp != 0 && counter < index; ++counter)
 	{
 		tmpPrev = tmp;
 		tmp = tmp->pNext;
 	}
-
 	if (tmp == nullptr)
 		return false;
 
@@ -197,6 +209,7 @@ bool deliveryToCustomer(Product*& head, Product*& tail, Product*& headCustomer, 
 		return false;
 
 	int counter = 1;
+
 	Product* tmp = head->pNext;
 	Product* tmpPrev = head;
 
@@ -205,8 +218,8 @@ bool deliveryToCustomer(Product*& head, Product*& tail, Product*& headCustomer, 
 		tmpPrev = tmp;
 		tmp = tmp->pNext;
 	}
-	
-	if (counter != index + 1) 
+
+	if (counter != index + 1)
 		return false;
 
 	tmp = tmpPrev;
@@ -215,14 +228,15 @@ bool deliveryToCustomer(Product*& head, Product*& tail, Product*& headCustomer, 
 	cin >> tmp->Customer;
 	cout << "Add Priority: 0 - No; 1 - Yes; ";
 	cin >> tmp->Priority;
-	
+
 	if (tmp == head)
 	{
 		if (head == tail)
 			head = tail = tail->pNext;
 		else
 			head = tmp->pNext;
-			head->pPrev = nullptr;
+		head->pPrev = nullptr;
+
 	}
 	else
 	{
@@ -260,22 +274,26 @@ bool deliveryToCustomer(Product*& head, Product*& tail, Product*& headCustomer, 
 			tailCustomer = tmp;
 		}
 	}
-	
+
 	return true;
 }
 
 void ShowItemList(Product*& headCustomer, Product*& tailCustomer)
 {
 	Product* tmp = headCustomer;
+
+	int counter = 1;
 	if (tmp == nullptr)
 	{
 		cout << "Nothing";
 	}
 	while (tmp != nullptr)
 	{
-		cout << "Address: " << tmp << endl << "Value: " << tmp->Price << endl << "Customer: " << tmp->Customer << endl << "Label: " << tmp->Label << endl << "Priority :" << tmp->Priority << endl << "LinkNext: " << tmp->pNext << endl << "LinkPrev: " << tmp->pPrev << endl;
+
+		cout << "Number of product: " << counter << endl << "Value: " << tmp->Price << endl << "Customer: " << tmp->Customer << endl << "Label: " << tmp->Label << endl << "Priority :" << tmp->Priority << endl;
 		cout << endl;
 		tmp = tmp->pNext;
+		counter++;
 	}
 
 	cout << "\n\n\n";
