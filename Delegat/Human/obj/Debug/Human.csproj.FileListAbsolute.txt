@@ -1,0 +1,6 @@
+D:\git\AdvancedC\advancedC\Delegat\Human\bin\Debug\Human.exe.config
+D:\git\AdvancedC\advancedC\Delegat\Human\bin\Debug\Human.exe
+D:\git\AdvancedC\advancedC\Delegat\Human\bin\Debug\Human.pdb
+D:\git\AdvancedC\advancedC\Delegat\Human\obj\Debug\Human.csproj.CoreCompileInputs.cache
+D:\git\AdvancedC\advancedC\Delegat\Human\obj\Debug\Human.exe
+D:\git\AdvancedC\advancedC\Delegat\Human\obj\Debug\Human.pdb
