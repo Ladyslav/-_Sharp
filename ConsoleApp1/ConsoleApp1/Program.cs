@@ -12,9 +12,10 @@ namespace Client
     class Program
     {
         static Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        static byte[] buffer = new byte[1024];
         static MemoryStream stream = new MemoryStream(buffer);
         static BinaryWriter writer = new BinaryWriter(stream);
-        static byte[] buffer = new byte[1024];
+       
 
         static void Main(string[] args)
         {
