@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "ConsoleApp1\Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{63D89B6F-34B0-4667-B30B-1B446B189D40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wfClient", "Picture-1\wfClient.csproj", "{81364F45-1554-40C0-BE5D-F8A64B886ED3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wfServer", "wfServer\wfServer.csproj", "{39100EFC-F973-4ECA-823F-5269E21BD542}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{63D89B6F-34B0-4667-B30B-1B446B189D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D89B6F-34B0-4667-B30B-1B446B189D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D89B6F-34B0-4667-B30B-1B446B189D40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81364F45-1554-40C0-BE5D-F8A64B886ED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81364F45-1554-40C0-BE5D-F8A64B886ED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81364F45-1554-40C0-BE5D-F8A64B886ED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81364F45-1554-40C0-BE5D-F8A64B886ED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39100EFC-F973-4ECA-823F-5269E21BD542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39100EFC-F973-4ECA-823F-5269E21BD542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39100EFC-F973-4ECA-823F-5269E21BD542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39100EFC-F973-4ECA-823F-5269E21BD542}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
