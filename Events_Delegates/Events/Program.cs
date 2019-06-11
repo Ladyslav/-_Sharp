@@ -32,7 +32,7 @@ namespace Events
             //enemys[0].OnEnemyDead += AchivmentUnlock;
             //Enemy e = new Enemy(null);
             //e.OnEnemyDead += WriteDeadMessage;
-            //enemys[1].OnEnemyDead -= AchivmentUnlock;
+            enemys[1].OnEnemyDead -= AchivmentUnlock;
 
             Player player = new Player();
 
